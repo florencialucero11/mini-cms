@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini CMS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mini CMS</h1>
+    <button id="logout-btn" style="display:none;">Logout</button>
+    <button id="toggle-dark-mode">🌙</button>
+  </header>
+
+  <main>
+    <section id="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+      </form>
+    </section>
+
+    <section id="articles-section">
+      <h2>Artículos</h2>
+      <div id="articles-container"></div>
+    </section>
+
+    <section id="create-section" style="display:none;">
+      <h2>Crear Artículo</h2>
+      <form id="create-form">
+        <input type="text" id="title" placeholder="Título" required>
+        <textarea id="content" placeholder="Contenido" required></textarea>
+        <button type="submit">Crear</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

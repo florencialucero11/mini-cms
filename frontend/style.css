@@ -1,0 +1,287 @@
+:root {
+  --bg-color: #f4f4f9;
+  --card-color: #ffffff;
+  --text-color: #333;
+  --primary: #4f46e5; /* violeta moderno */
+  --primary-hover: #4338ca;
+}
+
+/* 🌙 Dark mode variables */
+.dark-mode {
+  --bg-color: #1f2937;
+  --card-color: #111827;
+  --text-color: #f9fafb;
+  --primary: #a78bfa; /* violeta claro para contraste */
+  --primary-hover: #8b5cf6;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Header */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+#toggleTheme {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#toggleTheme:hover {
+  background: #f3f4f6;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--primary);
+}
+
+/* Formularios */
+form {
+  background: var(--card-color);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+.hidden { display: none; }
+
+/* 🔹 Estilo general para mensajes */
+.message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  z-index: 1000;
+  opacity: 0.95;
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ✅ Mensaje de éxito */
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* ❌ Mensaje de error */
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ℹ️ Mensaje informativo */
+.message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lista de artículos */
+/* ==========================
+   Artículos estilo profesional
+========================== */
+#articles-container {
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.article {
+  background: var(--card-color);
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.article h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.article p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.article small {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* Botones estilo profesional dentro de cada artículo */
+.article-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.editBtn, .deleteBtn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Editar */
+.editBtn {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+.editBtn:hover {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+}
+
+/* Eliminar */
+.deleteBtn {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+.deleteBtn:hover {
+  background: linear-gradient(90deg, #dc2626, #f43f5e);
+}
+
+/* Badge de ID discreto */
+.article .article-id {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+/* Dark mode ajustes */
+.dark-mode .article .article-id {
+  background: var(--primary-hover);
+}
+
+
+/* Modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--card-color);
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+#closeModal {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+#editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
